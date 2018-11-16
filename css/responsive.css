@@ -1,0 +1,26 @@
+@media screen and (min-width: 600px) {
+	#restaurants-list {
+		grid-template-columns: 1fr 1fr;
+	}
+	#restaurants-list li {
+		margin: 7.5px 7.5px;
+		max-width: 400px;
+	}
+}
+
+@media screen and (min-width: 1000px) {
+	#restaurants-list {
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+	#restaurants-list li {
+		margin: 15px;
+	}
+}
+
+@media screen and (min-width: 1250px) {
+	body {
+		width: 1250px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
