@@ -8,12 +8,48 @@
 	}
 }
 
+@media screen and (min-width: 750px) {
+	#restaurant-container {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+	}
+	#restaurant-container h1 {
+		grid-column-start: span 2;
+	}
+	#restaurant-infos {
+		padding-left: 20px;
+	}
+}
+
 @media screen and (min-width: 1000px) {
 	#restaurants-list {
 		grid-template-columns: 1fr 1fr 1fr;
 	}
 	#restaurants-list li {
 		margin: 15px;
+	}
+	.inside #maincontent {
+		grid-template-columns: 1fr 1fr;
+	}
+	.inside #map-container {
+		grid-column-start: 2;
+		padding: 104px 30px 30px 15px;
+	}
+	.inside #map {
+		height: 100%;
+	}
+	#restaurant-container {
+		grid-template-columns: 1fr;
+		grid-column-start: 1;
+		grid-row-start: 1;
+		padding: 30px 15px 30px 30px;
+	}
+	#restaurant-container h1 {
+		grid-column-start: span 1;
+	}
+	#reviews-container {
+		grid-column-start: span 2;
+		padding: 30px;
 	}
 }
 
