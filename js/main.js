@@ -1,3 +1,14 @@
+/**
+ * Register the service worker.
+ */
+if (navigator.serviceWorker) {
+  navigator.serviceWorker.register('/sw.js').then(function() {
+    console.log('REGRISTRATION SUCCESSFUL');
+  }).catch(function(err) {
+    console.log('REGRISTRATION FAILED: ' + err);
+  });
+}
+
 let restaurants,
   neighborhoods,
   cuisines
@@ -209,4 +220,3 @@ addMarkersToMap = (restaurants = self.restaurants) => {
     self.markers.push(marker);
   });
 } */
-
