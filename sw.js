@@ -22,7 +22,7 @@ const cacheUrls = [
 	'/img/favicon.ico'
 ];
 
-// listen for the browser to set up a new service worker and cache urls
+// listen for the browser to set up a new service worker and load cache files
 self.addEventListener('install', function(event) {
 	event.waitUntil(
 		caches.open(staticCacheName).then(function(cache) {
@@ -42,6 +42,22 @@ self.addEventListener('activate', function(event) {
           return caches.delete(cacheName);
         })
       );
+    })
+  );
+});
+
+// respond to requests with a cache file or network request
+self.addEventListener('fetch', function(event) {
+  event.respondWith(
+    caches.match(event.request).then(function(response) {
+			console.log(event.request);
+      return response || fetch(event.request).then(function(response) {
+				let responseToCache = response.clone();
+				caches.open(staticCacheName).then(function(cache) {
+					cache.put(event.request, responseToCache);
+				});
+				return response;
+			});
     })
   );
 });
